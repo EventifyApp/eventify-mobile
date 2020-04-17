@@ -24,8 +24,19 @@
     "babel-preset-expo": "~8.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
+    "husky": "^4.2.5",
+    "lint-staged": ">=10",
     "prettier": "2.0.4",
     "typescript": "~3.8.3"
   },
-  "private": true
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
 }
